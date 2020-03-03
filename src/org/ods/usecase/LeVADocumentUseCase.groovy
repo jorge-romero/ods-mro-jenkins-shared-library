@@ -470,7 +470,7 @@ class LeVADocumentUseCase extends DocGenUseCase {
 
     String createIVR(Map repo, Map data) {
         def documentType = DocumentType.IVR as String
-        def installationTestData = data.tests.installation
+
         def watermarkText
         def sections = this.jiraUseCase.getDocumentChapterData(documentType)
         if (!sections) {
@@ -479,6 +479,7 @@ class LeVADocumentUseCase extends DocGenUseCase {
             watermarkText = this.getWatermarkText(documentType)
         }
 
+        def installationTestData = data.tests.installation
         def installationTestIssues = this.project.getAutomatedTestsTypeInstallation()
 
         def matchedHandler = { result ->
@@ -541,7 +542,7 @@ class LeVADocumentUseCase extends DocGenUseCase {
                         testsOds       : testsOfRepoTypeOds
                 ]
         ]
-        this.steps.echo("nifl::createIVR() model is ${data_}")
+
         def files = data.tests.installation.testReportFiles.collectEntries { file ->
             ["raw/${file.getName()}", file.getBytes()]
         }
