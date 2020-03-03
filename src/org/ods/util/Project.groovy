@@ -128,7 +128,7 @@ class Project {
               "PLTFMDEV-551",
               "PLTFMDEV-552",
               "PLTFMDEV-553",
-              "PLTFMDEV-1046",
+              "PLTFMDEV-1046"
           ],
           "mitigations": [
               "DEMO-8",
